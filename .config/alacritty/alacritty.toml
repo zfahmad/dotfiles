@@ -1,0 +1,55 @@
+general.import = [
+    "~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"
+]
+
+[font]
+builtin_box_drawing = true
+size = 11.0
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "Hack Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "Hack Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "Hack Nerd Font Mono"
+style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 50000
+
+[window]
+dynamic_padding = true
+decorations = "Full"
+decorations_theme_variant = "Dark"
+opacity = 0.9
+blur = true
+option_as_alt = "OnlyLeft"
+resize_increments = true
+
+[window.dimensions]
+columns = 100
+lines = 43
+
+[window.padding]
+x = 6
+y = 6
+
+[cursor.style]
+shape = "Beam"
+blinking = "On"
