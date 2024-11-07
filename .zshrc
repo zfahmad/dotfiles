@@ -7,9 +7,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
 plugins=(
     git
     zsh-autosuggestions
