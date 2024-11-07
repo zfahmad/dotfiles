@@ -2,8 +2,7 @@ export ZSH_DISABLE_COMPFIX="true"
 export TERM=xterm-256color
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/zaheen/.oh-my-zsh"
-source ~/.local/share/zsh/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -32,14 +31,14 @@ alias tree='eza -T --icons=always'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/zaheen/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/zaheen/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/zaheen/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/zaheen/anaconda3/bin:$PATH"
+        export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -73,10 +72,11 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-source <(fzf --zsh)
 
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
