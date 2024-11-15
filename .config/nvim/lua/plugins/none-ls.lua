@@ -16,6 +16,7 @@ return {
                 },
             })
         end,
+        requires = { "nvim-lua/plenary.nvim" },
     },
     {
         "jay-babu/mason-null-ls.nvim",
@@ -26,8 +27,9 @@ return {
         },
         config = function()
             require("mason-null-ls").setup({
-                ensure_installed = { "pylint" },
-                automatic_installation = true
+                -- ensure_installed = { "pylint" },
+                -- automatic_installation = true
+                handlers = {}
             })
         end
     }

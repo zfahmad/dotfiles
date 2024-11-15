@@ -1,8 +1,7 @@
 return {
     "nvim-neorg/neorg",
-    -- tag = "*",
-    ft = "norg",
-    after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    lazy = false,
+    version = "*",
     config = function()
         require('neorg').setup {
             load = {

@@ -16,7 +16,7 @@ opt.encoding = 'utf8'            -- str:  String encoding to use
 opt.fileencoding = 'utf8'        -- str:  File encoding to use
 
 -- [[ Theme ]]
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('rose-pine')
 opt.colorcolumn = '80'          -- str:  Show col for max line length
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.termguicolors = true         -- bool: If term supports ui color then enable
