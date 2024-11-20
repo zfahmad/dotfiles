@@ -5,7 +5,6 @@ local opts = { noremap = true, silent =true }
 
 map('n', '<Leader>ne', [[:Neotree toggle<CR>]], {})
 map('n', '<Leader>ut', [[:UndotreeToggle<CR>]], {})
-map('n', '<Leader>m', [[:make<CR>]], {})
 
 map('n', '<M-j>', '<C-w>j', opts)
 map('n', '<M-k>', '<C-w>k', opts)

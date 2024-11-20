@@ -1,10 +1,23 @@
+-- return {
+--     'ellisonleao/gruvbox.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require("gruvbox").setup({
+--             transparent_mode = true
+--         })
+--     end
+-- }
+
 return {
-    'ellisonleao/gruvbox.nvim',
+    'sainnhe/gruvbox-material',
     lazy = false,
     priority = 1000,
     config = function()
-        require("gruvbox").setup({
-            transparent_mode = true
-        })
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.gruvbox_material_transparent_background = 1
+        vim.g.gruvbox_material_enable_italic = true
+        vim.g.gruvbox_material_background = 'medium'
     end
 }
