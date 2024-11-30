@@ -1,8 +1,33 @@
 return {
     'nvim-telescope/telescope.nvim',
-    tag = "0.1.5",
+    tag = "0.1.8",
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
+        local actions = require("telescope.actions")
+        require("telescope").setup({
+            pickers = {
+                find_files = {
+                    theme = "dropdown",
+                },
+                live_grep = {
+                    theme = "dropdown",
+                },
+                buffers = {
+                    theme = "dropdown",
+                    mappings = {
+                        i = {
+                            ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+                        }
+                    },
+                },
+                help_tags = {
+                    theme = "dropdown",
+                },
+                grep_string = {
+                    theme = "dropdown",
+                },
+            },
+        })
         local wk = require("which-key")
         wk.add({
             {
