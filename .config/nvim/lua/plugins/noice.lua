@@ -22,16 +22,6 @@ return {
                     ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
                 },
             },
-            -- routes = {
-            --     {
-            --         view = "mini",
-            --         filter = {
-            --             event = "msg_showmode",
-            --             find = "recording",
-            --         },
-            --     },
-            -- },
-            -- you can enable a preset for easier configuration
             presets = {
                 bottom_search = false,        -- use a classic bottom cmdline for search
                 command_palette = true,       -- position the cmdline and popupmenu together

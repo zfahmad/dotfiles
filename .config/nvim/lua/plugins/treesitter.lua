@@ -11,12 +11,6 @@ return {
                 },
                 indent = { enable = true },
                 auto_install = true,
-                refactor = {
-                    highlight_definitions = {
-                        enable = true,
-                        clear_on_cursor_move = true,
-                    },
-                }
             })
         end,
         dependencies = {
@@ -36,12 +30,12 @@ return {
         config = function()
             local config = require("nvim-treesitter.configs")
             config.setup({
-                refactor = {
-                    highlight_definitions = {
-                        enable = true,
-                        clear_on_cursor_move = true,
-                    },
-                }
+                -- refactor = {
+                --     highlight_definitions = {
+                --         enable = true,
+                --         clear_on_cursor_move = true,
+                --     },
+                -- }
             })
         end,
     }

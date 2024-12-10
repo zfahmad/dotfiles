@@ -9,7 +9,6 @@ return {
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.isort,
                     null_ls.builtins.formatting.black,
-                    -- null_ls.builtins.formatting.latexindent,
                     null_ls.builtins.formatting.prettier,
                     null_ls.builtins.diagnostics.textidote,
                     null_ls.builtins.diagnostics.pylint.with({
@@ -29,11 +28,7 @@ return {
             "nvimtools/none-ls.nvim",
         },
         config = function()
-            require("mason-null-ls").setup({
-                -- ensure_installed = { "pylint" },
-                -- automatic_installation = true
-                handlers = {}
-            })
+            require("mason-null-ls").setup({})
         end
     }
 }

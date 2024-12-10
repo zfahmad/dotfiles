@@ -47,7 +47,7 @@ return {
                     { "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>",                                   desc = "Terminate",              nowait = false, remap = false },
                 },
                 {
-                    { "<leader>",  group = "Debug", mode = "v", nowait = false, remap = false },
+                    { "<leader>",  group = "Debug",                      mode = "v",        nowait = false, remap = false },
                     { "<leader>e", "<cmd>lua require'dapui'.eval()<cr>", desc = "Evaluate", mode = "v",     nowait = false, remap = false },
                 }
             })
