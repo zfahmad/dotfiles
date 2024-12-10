@@ -47,7 +47,7 @@ return {
             vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open float diagnostic" })
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-            vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { desc = "Location list" })
+            vim.keymap.set("n", "<space>l", vim.diagnostic.setloclist, { desc = "Location list" })
 
             local on_attach = function(client, bufnr)
                 vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })

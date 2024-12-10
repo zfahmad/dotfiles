@@ -1,7 +1,7 @@
 -- [[ keys.lua ]]
 
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent =true }
+local opts = { noremap = true, silent = true }
 
 map('n', '<M-j>', '<C-w>j', opts)
 map('n', '<M-k>', '<C-w>k', opts)
