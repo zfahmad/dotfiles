@@ -16,9 +16,9 @@ opt.encoding = 'utf8'            -- str:  String encoding to use
 opt.fileencoding = 'utf8'        -- str:  File encoding to use
 
 -- [[ Theme ]]
-opt.guicursor = 'n-v:block,i-ve:ver25,i:blinkwait500-blinkoff400-blinkon250'
-vim.cmd.colorscheme('gruvbox-material')
-vim.cmd('highlight Conceal guifg=#98971a')
+opt.guicursor = 'n-v:block,i-ve:ver25-Cursor,i:blinkwait500-blinkoff400-blinkon250'
+vim.cmd.colorscheme('rose-pine')
+-- vim.cmd('highlight Conceal guifg=#98971a')
 opt.colorcolumn = '80'          -- str:  Show col for max line length
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.termguicolors = true         -- bool: If term supports ui color then enable

@@ -15,12 +15,6 @@ return {
             },
         },
         config = function()
-            -- local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-            -- function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-            --     opts = opts or {}
-            --     opts.border = opts.border or "double"
-            --     return orig_util_open_floating_preview(contents, syntax, opts, ...)
-            -- end
 
             -- Changing gutter signs for diagnostics
             local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
@@ -113,7 +107,6 @@ return {
 
             for _, lsp in pairs(servers) do
                 require("lspconfig")[lsp].setup({
-                    -- handlers = handlers,
                     capabilities = capabilities,
                     on_attach = on_attach,
                 })

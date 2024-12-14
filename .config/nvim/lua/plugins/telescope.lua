@@ -7,13 +7,13 @@ return {
         require("telescope").setup({
             pickers = {
                 find_files = {
-                    theme = "dropdown",
+                    -- theme = "dropdown",
                 },
                 live_grep = {
-                    theme = "dropdown",
+                    -- theme = "dropdown",
                 },
                 buffers = {
-                    theme = "dropdown",
+                    -- theme = "dropdown",
                     mappings = {
                         i = {
                             ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
@@ -24,7 +24,7 @@ return {
                     theme = "dropdown",
                 },
                 grep_string = {
-                    theme = "dropdown",
+                    -- theme = "dropdown",
                 },
             },
         })
