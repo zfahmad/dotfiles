@@ -98,11 +98,11 @@ return {
             local servers = {
                 "lua_ls",
                 "pyright",
-                "clangd",
                 "jsonls",
                 "bashls",
                 "vimls",
                 "texlab",
+                "cmake",
             }
 
             for _, lsp in pairs(servers) do
@@ -111,6 +111,15 @@ return {
                     on_attach = on_attach,
                 })
             end
+            require("lspconfig").clangd.setup({
+                cmd = {
+                    "clangd",
+                    "--fallback-style=webkit",
+                    "--offset-encoding=utf-16"
+                },
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
         end,
     },
 }

@@ -35,5 +35,5 @@ require("lazy").setup({
         backdrop = 100,
     },
     -- automatically check for plugin updates
-    checker = { enabled = true },
+    checker = { enabled = false },
 })
