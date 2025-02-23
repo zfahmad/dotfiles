@@ -11,6 +11,10 @@ return {
                 },
                 indent = { enable = true },
                 auto_install = true,
+                ensure_installed = {
+                    "norg",
+                    highlight = { enable = true,}
+                }
             })
         end,
         dependencies = {

@@ -115,7 +115,7 @@ return {
                 cmd = {
                     "clangd",
                     "--fallback-style=webkit",
-                    "--offset-encoding=utf-16"
+                    "--offset-encoding=utf-16",
                 },
                 capabilities = capabilities,
                 on_attach = on_attach,

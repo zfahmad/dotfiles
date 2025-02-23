@@ -32,7 +32,9 @@ return {
         }
 
         cmp.setup({
+            ---@diagnostic disable-next-line: missing-fields
             formatting = {
+                expandable_indicator = true,
                 format = function(entry, vim_item)
                     -- Kind icons
                     vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
@@ -74,6 +76,9 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
                 { name = "buffer" },
                 { name = "path" },
+                { name = "vimtex" },
+                { name = "render-markdown" },
+                { name = "neorg" },
             }),
         })
     end,
