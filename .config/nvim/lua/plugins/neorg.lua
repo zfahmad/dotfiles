@@ -2,11 +2,12 @@ return {
     "nvim-neorg/neorg",
     lazy = false,
     version = "*",
+    dependencies = { { "nvim-neorg/neorg-telescope" }, },
     config = function()
         require('neorg').setup {
             load = {
                 ["core.completion"] = {
-                config = {
+                    config = {
                         engine = "nvim-cmp",
                     },
                 },
@@ -19,6 +20,14 @@ return {
                             notes = "~/Documents/notes",
                         },
                         default_workspace = "notes",
+                    },
+                },
+                ["core.integrations.telescope"] = {
+                    config = {
+                        insert_file_link = {
+                            show_title_preview = true,
+                            theme = "dropdown",
+                        },
                     },
                 },
             },

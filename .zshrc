@@ -11,6 +11,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -66,6 +67,7 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='v:imgview;p:preview-tui'
 export BAT_THEME=zenburn
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
+source ~/.config/zsh/rose-pine-man/rose-pine-man.zsh
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
