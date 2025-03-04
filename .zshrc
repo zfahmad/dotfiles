@@ -12,6 +12,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     colored-man-pages
+    vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -59,6 +60,8 @@ n ()
     fi
 }
 
+bindkey -M vicmd 'v' visual-mode
+
 export EZA_ICON_SPACING=2
 BLK="03" CHR="03" DIR="04" EXE="02" REG="07" HARDLINK="05" SYMLINK="05" MISSING="08" ORPHAN="01" FIFO="06" SOCK="03" UNKNOWN="01"
 export NNN_COLORS="#04020301;4231"
@@ -77,6 +80,6 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
 . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

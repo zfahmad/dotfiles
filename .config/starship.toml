@@ -158,3 +158,6 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+[character]
+vimcmd_symbol = "[❮❮](bold yellow)"

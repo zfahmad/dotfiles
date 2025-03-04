@@ -30,6 +30,7 @@ return {
                         },
                     },
                 },
+                ["core.export"] = {},
             },
         }
     end

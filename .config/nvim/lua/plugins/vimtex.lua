@@ -6,7 +6,6 @@ return {
         vim.cmd("let g:vimtex_quickfix_mode=1")
         -- vim.cmd("let g:vimtex_syntax_conceal={'math_super_sub': 0}")
         vim.cmd("set conceallevel=2")
-        vim.cmd("let g:vimtex_grammar_textidote = {'jar': '/usr/local/bin/textidote.jar', 'args': '--check en', }")
         vim.cmd("set textwidth=80")
         vim.cmd("let g:vimtex_complete_enabled=1")
     end,

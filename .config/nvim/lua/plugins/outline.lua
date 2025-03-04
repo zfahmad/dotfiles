@@ -5,5 +5,9 @@ return {
     keys = {
         { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
     },
-    opts = {},
+    opts = {
+        preview_window = {
+            auto_preview = true,
+        }
+    },
 }
