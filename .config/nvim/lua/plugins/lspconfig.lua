@@ -115,7 +115,6 @@ return {
                 "vimls",
                 "texlab",
                 "cmake",
-                "markdown",
             }
 
             for _, lsp in pairs(servers) do
