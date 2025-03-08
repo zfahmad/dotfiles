@@ -13,7 +13,7 @@ return {
             {
                 "<leader>ne",
                 "<cmd>Neotree toggle<cr>",
-                desc = "List buffers",
+                desc = "Neotree",
             },
         })
     end,

@@ -69,6 +69,7 @@ export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SO
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='v:imgview;p:preview-tui'
 export BAT_THEME=zenburn
+export NNN_PREVIEWIMGPROG='chafa'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 source ~/.config/zsh/rose-pine-man/rose-pine-man.zsh
 

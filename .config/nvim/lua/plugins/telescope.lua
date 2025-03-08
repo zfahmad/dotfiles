@@ -1,7 +1,7 @@
 return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim" },
     config = function()
         local actions = require("telescope.actions")
         require("telescope").setup({
@@ -32,7 +32,11 @@ return {
                     theme = "dropdown",
                 },
             },
+            extensions = {
+                undo = {}
+            }
         })
+        require("telescope").load_extension("undo")
         local wk = require("which-key")
         wk.add({
             {

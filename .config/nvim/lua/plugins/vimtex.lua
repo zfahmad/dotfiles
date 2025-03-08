@@ -8,5 +8,6 @@ return {
         vim.cmd("set conceallevel=2")
         vim.cmd("set textwidth=80")
         vim.cmd("let g:vimtex_complete_enabled=1")
+        -- vim.cmd("let g:vimtex_syntax_conceal={ 'math_symbols': 1, 'greek': 1 }")
     end,
 }
