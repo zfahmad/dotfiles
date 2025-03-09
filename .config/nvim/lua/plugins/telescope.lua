@@ -5,6 +5,9 @@ return {
     config = function()
         local actions = require("telescope.actions")
         require("telescope").setup({
+            defaults = {
+                file_ignore_patterns = { "**/*.png" },
+            },
             pickers = {
                 find_files = {
                     -- theme = "dropdown",
@@ -33,8 +36,8 @@ return {
                 },
             },
             extensions = {
-                undo = {}
-            }
+                undo = {},
+            },
         })
         require("telescope").load_extension("undo")
         local wk = require("which-key")
