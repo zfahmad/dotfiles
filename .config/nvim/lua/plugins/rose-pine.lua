@@ -8,7 +8,7 @@ return {
                 transparency = true,
             },
             highlight_groups = {
-                Cursor = { fg = "#ffffff", bg = "#ffffff" }
+                Cursor = { fg = "#ffffff", bg = "#ffffff" },
             },
         })
     end,

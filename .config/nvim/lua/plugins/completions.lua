@@ -1,5 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
+    dependencies = { "xzbdmw/colorful-menu.nvim" },
     config = function()
         local cmp = require("cmp")
         require("luasnip.loaders.from_vscode").lazy_load()
@@ -36,8 +37,16 @@ return {
             formatting = {
                 expandable_indicator = true,
                 format = function(entry, vim_item)
+                    local highlights_info = require("colorful-menu").cmp_highlights(entry)
+                    -- highlight_info is nil means we are missing the ts parser, it's
+                    -- better to fallback to use default `vim_item.abbr`. What this plugin
+                    -- offers is two fields: `vim_item.abbr_hl_group` and `vim_item.abbr`.
+                    if highlights_info ~= nil then
+                        vim_item.abbr_hl_group = highlights_info.highlights
+                        vim_item.abbr = highlights_info.text
+                    end
                     -- Kind icons
-                    vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+                    vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
                     -- Source
                     vim_item.menu = ({
                         buffer = "[Buffer]",
@@ -47,12 +56,12 @@ return {
                         latex_symbols = "[LaTeX]",
                     })[entry.source.name]
                     return vim_item
-                end
+                end,
             },
             snippet = {
                 -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
                     -- vim.snippet.expand(args.body)
                 end,
             },
@@ -73,7 +82,7 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
-                { name = 'luasnip' }, -- For luasnip users.
+                { name = "luasnip" }, -- For luasnip users.
                 { name = "buffer" },
                 { name = "path" },
                 { name = "vimtex" },
