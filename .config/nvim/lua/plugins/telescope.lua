@@ -1,9 +1,14 @@
 return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
-    dependencies = { "nvim-lua/plenary.nvim", "debugloop/telescope-undo.nvim" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "debugloop/telescope-undo.nvim",
+        "nvim-telescope/telescope-bibtex.nvim",
+    },
     config = function()
         local actions = require("telescope.actions")
+        require("telescope").load_extension("bibtex")
         require("telescope").setup({
             defaults = {
                 file_ignore_patterns = { "**/*.png" },
@@ -37,6 +42,10 @@ return {
             },
             extensions = {
                 undo = {},
+                bibtex = {
+                    theme = "dropdown",
+                    previewer = false,
+                },
             },
         })
         require("telescope").load_extension("undo")
@@ -50,6 +59,7 @@ return {
                 { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Search help tags" },
                 { "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Grep string" },
                 { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix list" },
+                { "<leader>fc", "<cmd>Telescope bibtex<cr>", desc = "Bibtex list" },
                 { "<leader>fnf", "<cmd>Telescope neorg find_norg_files<cr>", desc = "Find norg files" },
                 { "<leader>fnl", "<cmd>Telescope neorg insert_file_link<cr>", desc = "Find file links" },
                 { "<leader>fna", "<cmd>Telescope neorg find_linkable<cr>", desc = "Find all linkables" },
