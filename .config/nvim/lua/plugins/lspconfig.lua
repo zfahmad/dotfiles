@@ -129,6 +129,7 @@ return {
                     "clangd",
                     "--fallback-style=webkit",
                     "--offset-encoding=utf-16",
+                    "--clang-tidy",
                 },
                 capabilities = capabilities,
                 on_attach = on_attach,
