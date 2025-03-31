@@ -13,7 +13,7 @@ return {
                 auto_install = true,
                 ensure_installed = {
                     "norg",
-                    highlight = { enable = true,}
+                    -- highlight = { enable = true,}
                 }
             })
         end,
@@ -21,10 +21,10 @@ return {
             { "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
         }
     },
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        requires = "nvim-treesitter/nvim-treesitter"
-    },
+    -- {
+    --     "nvim-treesitter/nvim-treesitter-textobjects",
+    --     requires = "nvim-treesitter/nvim-treesitter"
+    -- },
     {
         "nvim-treesitter/nvim-treesitter-context",
     },

@@ -83,12 +83,15 @@ return {
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" }, -- For luasnip users.
-                { name = "buffer" },
+                { name = "buffer", option = { get_bufnrs = vim.api.nvim_list_bufs } },
                 { name = "path" },
-                { name = "vimtex" },
+                { name = "vimtex", priority = 10 },
                 { name = "render-markdown" },
                 { name = "neorg" },
+                { name = "latex_symbols" },
+                { name = "omni", filetypes = { "tex" } },
             }),
         })
+        -- autocmd FileType tex setlocal omnifunc=vimtex#complete#omnifunc
     end,
 }

@@ -14,17 +14,38 @@ return {
         },
         config = function()
             -- Changing gutter signs for diagnostics
-            local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            end
+            -- local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+            -- for type, icon in pairs(signs) do
+            --     local hl = "DiagnosticSign" .. type
+            --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+            -- end
 
             vim.diagnostic.config({
-                virtual_text = true,
+                -- virtual_text = true,
+                virtual_lines = true,
                 float = {
                     border = "rounded",
                     focusable = true,
+                },
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "󰅚",
+                        [vim.diagnostic.severity.WARN] = "󰀪",
+                        [vim.diagnostic.severity.HINT] = "󰌶",
+                        [vim.diagnostic.severity.INFO] = "",
+                    },
+                    linehl = {
+                        [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+                        [vim.diagnostic.severity.WARN] = "WarningMsg",
+                        [vim.diagnostic.severity.HINT] = "HintMsg",
+                        [vim.diagnostic.severity.INFO] = "InfoMsg",
+                    },
+                    numhl = {
+                        [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+                        [vim.diagnostic.severity.WARN] = "WarningMsg",
+                        [vim.diagnostic.severity.HINT] = "HintMsg",
+                        [vim.diagnostic.severity.INFO] = "InfoMsg",
+                    },
                 },
             })
 
@@ -36,8 +57,12 @@ return {
             })
 
             vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open float diagnostic" })
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+            vim.keymap.set("n", "[d", function()
+                vim.diagnostic.jump({ count = -1, float = true })
+            end, { desc = "Previous diagnostic" })
+            vim.keymap.set("n", "]d", function()
+                vim.diagnostic.jump({ count = 1, float = true })
+            end, { desc = "Next diagnostic" })
             vim.keymap.set("n", "<space>l", vim.diagnostic.setloclist, { desc = "Location list" })
 
             local on_attach = function(client, bufnr)

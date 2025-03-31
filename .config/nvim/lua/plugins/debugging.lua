@@ -100,10 +100,10 @@ return {
             require("dap-python").setup("/Users/zaheen/anaconda3/bin/python")
         end
     },
-    {
-        "theHamsta/nvim-dap-virtual-text",
-        config = function()
-            require("nvim-dap-virtual-text").setup()
-        end
-    }
+    -- {
+    --     "theHamsta/nvim-dap-virtual-text",
+    --     config = function()
+    --         require("nvim-dap-virtual-text").setup({})
+    --     end
+    -- }
 }
