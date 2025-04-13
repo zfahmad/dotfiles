@@ -18,10 +18,10 @@ opt.fileencoding = "utf8" -- str:  File encoding to use
 -- [[ Theme ]]
 -- opt.guicursor = 'n-v:block,i-ve:ver25-Cursor,i:blinkwait500-blinkoff400-blinkon250'
 -- vim.cmd.colorscheme('catppuccin-mocha')
-vim.cmd.colorscheme("kanagawa-wave")
+-- vim.cmd.colorscheme("kanagawa-wave")
 -- vim.cmd.colorscheme("rose-pine-moon")
--- vim.cmd.colorscheme('gruvbox-material')
--- vim.cmd('highlight Conceal guifg=#98971a')
+vim.cmd.colorscheme('gruvbox-material')
+vim.cmd('highlight Conceal guifg=#98971a')
 -- vim.cmd("highlight Conceal guifg=white")
 opt.colorcolumn = "80" -- str:  Show col for max line length
 opt.syntax = "ON" -- str:  Allow syntax highlighting
