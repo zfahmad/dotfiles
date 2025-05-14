@@ -15,7 +15,7 @@ return {
                             "-style=file:" .. vim.fn.expand(".clang-format"),
                         }
                     }),
-                    null_ls.builtins.diagnostics.textidote,
+                    -- null_ls.builtins.diagnostics.textidote,
                     null_ls.builtins.diagnostics.cmake_lint,
                     null_ls.builtins.diagnostics.pylint.with({
                         only_local = true,
