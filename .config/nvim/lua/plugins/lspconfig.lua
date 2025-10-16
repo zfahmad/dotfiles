@@ -144,12 +144,15 @@ return {
             }
 
             for _, lsp in pairs(servers) do
-                require("lspconfig")[lsp].setup({
+                -- require("lspconfig")[lsp].setup({
+                vim.lsp.config(lsp, {
                     capabilities = capabilities,
                     on_attach = on_attach,
                 })
+                vim.lsp.enable(lsp)
             end
-            require("lspconfig").clangd.setup({
+            -- require("lspconfig").clangd.setup({
+            vim.lsp.config("clangd", {
                 cmd = {
                     "clangd",
                     "--fallback-style=webkit",
@@ -159,6 +162,7 @@ return {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
+            vim.lsp.enable("clangd")
         end,
     },
 }

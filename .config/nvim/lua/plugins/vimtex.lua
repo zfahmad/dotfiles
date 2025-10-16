@@ -7,6 +7,7 @@ return {
         vim.cmd("set conceallevel=2")
         vim.cmd("set textwidth=80")
         vim.cmd("let g:vimtex_complete_enabled=1")
+        vim.cmd("let g:vimtex_view_sioyek_options='--reuse-window'")
         -- vim.cmd("let g:vimtex_compiler_latexmk={ 'options': [ '--shell-escape'], }")
         vim.g.vimtex_compiler_latexmk = {
             backend = "jobs",
