@@ -91,6 +91,14 @@ return {
                 { name = "latex_symbols" },
                 { name = "omni", filetypes = { "tex" } },
             }),
+            -- cmp.setup.filetype("python", {
+            -- sources = cmp.config.sources({
+            --         { name = "luasnip" },
+            --         { name = "buffer", option = { get_bufnrs = vim.api.nvim_list_bufs } },
+            --         { name = "path" },
+            --     }),
+            -- })
+
         })
         -- autocmd FileType tex setlocal omnifunc=vimtex#complete#omnifunc
     end,

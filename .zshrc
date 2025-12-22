@@ -26,6 +26,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ls='eza --icons=always'
 alias tree='eza -T --icons=always'
+alias cat=bat
 
 
 # >>> conda initialize >>>
@@ -81,6 +82,6 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
 . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(atuin init zsh)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

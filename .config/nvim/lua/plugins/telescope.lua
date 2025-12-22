@@ -11,7 +11,7 @@ return {
         require("telescope").load_extension("bibtex")
         require("telescope").setup({
             defaults = {
-                file_ignore_patterns = { "**/*.png" },
+                file_ignore_patterns = { "**/*.png", "build/" },
             },
             pickers = {
                 find_files = {
