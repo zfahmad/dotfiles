@@ -17,7 +17,7 @@ return {
                 -- },
                 indent = {
                     enabled = true,
-                    per_level = 4,
+                    per_level = 2,
                 },
                 latex = {
                     enabled = false,
