@@ -129,12 +129,12 @@ return {
                 "lua_ls",
                 "pyright",
                 "jsonls",
-                "bashls",
                 "vimls",
                 "texlab",
                 "cmake",
                 "html",
-                -- "prettier",
+                "prettier",
+                "marksman",
             }
 
             for _, lsp in pairs(servers) do
@@ -153,6 +153,13 @@ return {
                     "--offset-encoding=utf-16",
                     "--clang-tidy",
                 },
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+            vim.lsp.enable("clangd")
+
+            vim.lsp.config("bashls", {
+                filetypes = { "sh", "zsh", "bash" },
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
