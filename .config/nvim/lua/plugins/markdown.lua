@@ -6,8 +6,8 @@ return {
             "nvim-tree/nvim-web-devicons",
             "lervag/vimtex",
         },
-        --        ---@module 'render-markdown'
-        --        ---@type render.md.UserConfig
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
         opts = {},
         config = function()
             require("render-markdown").setup({
@@ -18,7 +18,7 @@ return {
                 --     custom = { todo = { rendered = "◯ " } },
                 -- },
                 heading = {
-                    width = 'block',
+                    width = "block",
                     left_pad = 2,
                     right_pad = 4,
                 },

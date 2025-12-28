@@ -135,6 +135,7 @@ return {
                 "html",
                 "prettier",
                 "marksman",
+                "bibclean",
             }
 
             for _, lsp in pairs(servers) do

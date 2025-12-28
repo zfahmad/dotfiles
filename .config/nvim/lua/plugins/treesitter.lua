@@ -5,7 +5,6 @@ return {
     opts = {
         highlight = {
             enable = true,
-            disable = { "latex", "bib" },
         },
         --     indent = { enable = true },
         --     auto_install = true,

@@ -12,6 +12,9 @@ return {
                     null_ls.builtins.formatting.prettier,
                     null_ls.builtins.formatting.djhtml,
                     null_ls.builtins.formatting.shfmt,
+                    null_ls.builtins.formatting.bibclean.with({
+                        args = {"-"}
+                    }),
                     null_ls.builtins.formatting.cmake_format.with({
                         extra_args = {
                             "-style=file:" .. vim.fn.expand(".clang-format"),
