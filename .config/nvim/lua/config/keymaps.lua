@@ -3,6 +3,14 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set(
+  "n",
+  "gr",
+  vim.lsp.buf.references,
+  { desc = "LSP references (direct)", silent = true }
+)
+
+
 map('n', '<M-j>', '<C-w>j', opts)
 map('n', '<M-k>', '<C-w>k', opts)
 map('n', '<M-h>', '<C-w>h', opts)

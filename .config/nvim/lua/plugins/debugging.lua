@@ -1,61 +1,89 @@
 return {
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-            "mfussenegger/nvim-dap"
-        },
-        config = function()
-            local dap, dapui = require("dap"), require("dapui")
-            dapui.setup()
-
-            dap.listeners.before.attach.dapui_config = function()
-                dapui.open()
-            end
-            dap.listeners.before.launch.dapui_config = function()
-                dapui.open()
-            end
-            dap.listeners.before.event_terminated.dapui_config = function()
-                dapui.close()
-            end
-            dap.listeners.before.event_exited.dapui_config = function()
-                dapui.close()
-            end
-            local wk = require('which-key')
-
-            wk.add({
-                {
-                    { "<leader>d",  group = "Debug",                                                           nowait = false,                  remap = false },
-                    { "<leader>dC", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", desc = "Conditional Breakpoint", nowait = false, remap = false },
-                    { "<leader>dE", "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>",        desc = "Evaluate Input",         nowait = false, remap = false },
-                    { "<leader>dR", "<cmd>lua require'dap'.run_to_cursor()<cr>",                               desc = "Run to Cursor",          nowait = false, remap = false },
-                    { "<leader>dS", "<cmd>lua require'dap.ui.widgets'.scopes()<cr>",                           desc = "Scopes",                 nowait = false, remap = false },
-                    { "<leader>dU", "<cmd>lua require'dapui'.toggle()<cr>",                                    desc = "Toggle UI",              nowait = false, remap = false },
-                    { "<leader>db", "<cmd>lua require'dap'.step_back()<cr>",                                   desc = "Step Back",              nowait = false, remap = false },
-                    { "<leader>dc", "<cmd>lua require'dap'.continue()<cr>",                                    desc = "Continue",               nowait = false, remap = false },
-                    { "<leader>dd", "<cmd>lua require'dap'.disconnect()<cr>",                                  desc = "Disconnect",             nowait = false, remap = false },
-                    { "<leader>de", "<cmd>lua require'dapui'.eval()<cr>",                                      desc = "Evaluate",               nowait = false, remap = false },
-                    { "<leader>dg", "<cmd>lua require'dap'.session()<cr>",                                     desc = "Get Session",            nowait = false, remap = false },
-                    { "<leader>dh", "<cmd>lua require'dap.ui.widgets'.hover()<cr>",                            desc = "Hover Variables",        nowait = false, remap = false },
-                    { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>",                                   desc = "Step Into",              nowait = false, remap = false },
-                    { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>",                                   desc = "Step Over",              nowait = false, remap = false },
-                    { "<leader>dp", "<cmd>lua require'dap'.pause.toggle()<cr>",                                desc = "Pause",                  nowait = false, remap = false },
-                    { "<leader>dq", "<cmd>lua require'dap'.close()<cr>",                                       desc = "Quit",                   nowait = false, remap = false },
-                    { "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>",                                 desc = "Toggle Repl",            nowait = false, remap = false },
-                    { "<leader>ds", "<cmd>lua require'dap'.continue()<cr>",                                    desc = "Start",                  nowait = false, remap = false },
-                    { "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>",                           desc = "Toggle Breakpoint",      nowait = false, remap = false },
-                    { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>",                                    desc = "Step Out",               nowait = false, remap = false },
-                    { "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>",                                   desc = "Terminate",              nowait = false, remap = false },
-                },
-                {
-                    { "<leader>",  group = "Debug",                      mode = "v",        nowait = false, remap = false },
-                    { "<leader>e", "<cmd>lua require'dapui'.eval()<cr>", desc = "Evaluate", mode = "v",     nowait = false, remap = false },
-                }
-            })
-        end
-    },
+    -- Core DAP plugin
     {
         "mfussenegger/nvim-dap",
+        dependencies = {
+            -- Optional: UI and virtual text
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
+        },
         config = function()
+            local dap = require("dap")
+
+            -- Example Python adapter (adjust for your language)
+            -- dap.adapters.python = {
+            --     type = "executable",
+            --     command = "python",
+            --     args = { "-m", "debugpy.adapter" },
+            -- }
+            --
+            -- dap.configurations.python = {
+            --     {
+            --         type = "python",
+            --         request = "launch",
+            --         name = "Launch file",
+            --         program = "${file}",
+            --     },
+            -- }
+
+            -- Keymaps for debugging
+            vim.keymap.set("n", "<leader>ds", function()
+                dap.continue()
+            end, { desc = "DAP Continue" })
+            vim.keymap.set("n", "<F10>", function()
+                dap.step_over()
+            end, { desc = "DAP Step Over" })
+            vim.keymap.set("n", "<F11>", function()
+                dap.step_into()
+            end, { desc = "DAP Step Into" })
+            vim.keymap.set("n", "<F12>", function()
+                dap.step_out()
+            end, { desc = "DAP Step Out" })
+            vim.keymap.set("n", "<leader>db", function()
+                dap.toggle_breakpoint()
+            end, { desc = "DAP Toggle Breakpoint" })
+            vim.keymap.set("n", "<leader>dB", function()
+                dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+            end, { desc = "DAP Conditional Breakpoint" })
+            vim.keymap.set("n", "<leader>dr", function()
+                dap.repl.toggle()
+            end, { desc = "DAP Toggle REPL" })
+            vim.keymap.set("n", "<leader>dl", function()
+                dap.run_last()
+            end, { desc = "DAP Run Last" })
+        end,
+    },
+
+    -- UI for nvim-dap
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = { "mfussenegger/nvim-dap" },
+        config = function()
+            local dap = require("dap")
+            local dapui = require("dapui")
+
+            dapui.setup({
+                controls = { enabled = true },
+                floating = { border = "rounded" },
+                layouts = {
+                    {
+                        elements = {
+                            { id = "scopes", size = 0.3 },
+                            { id = "breakpoints", size = 0.2 },
+                            { id = "stacks", size = 0.3 },
+                            { id = "watches", size = 0.2 },
+                        },
+                        size = 0.33,
+                        position = "left",
+                    },
+                    {
+                        elements = { "repl", "console" },
+                        size = 0.27,
+                        position = "bottom",
+                    },
+                },
+            })
+
             vim.api.nvim_set_hl(0, "blue", { fg = "#3d59a1" })
             local dap_breakpoint = {
                 error = {
@@ -88,22 +116,44 @@ return {
             vim.fn.sign_define("DapBreakpointCondition", dap_breakpoint.cond)
             vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
             vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
-        end
+
+            -- Automatically open/close dap-ui
+            dap.listeners.after.event_initialized["dapui_config"] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated["dapui_config"] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited["dapui_config"] = function()
+                dapui.close()
+            end
+
+            -- Optional keymaps
+            vim.keymap.set("n", "<leader>du", function()
+                dapui.toggle()
+            end, { desc = "DAP UI Toggle" })
+            vim.keymap.set("n", "<leader>dh", function()
+                dapui.eval()
+            end, { desc = "DAP Hover Evaluate" })
+        end,
     },
+
     {
         "mfussenegger/nvim-dap-python",
         dependencies = {
             "mfussenegger/nvim-dap",
-            "rcarriga/nvim-dap-ui"
+            "rcarriga/nvim-dap-ui",
         },
         config = function()
             require("dap-python").setup("/Users/zaheen/anaconda3/bin/python")
-        end
+        end,
     },
-    -- {
-    --     "theHamsta/nvim-dap-virtual-text",
-    --     config = function()
-    --         require("nvim-dap-virtual-text").setup({})
-    --     end
-    -- }
+    -- Inline virtual text (optional)
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {
+            commented = true,
+            virt_text_pos = "eol",
+        },
+    },
 }

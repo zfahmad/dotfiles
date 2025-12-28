@@ -19,7 +19,7 @@ return {
 
         telescope.setup({
             defaults = {
-                file_ignore_patterns = { "%.png$" },
+                file_ignore_patterns = { "**/*.png", "build/" },
             },
 
             pickers = {

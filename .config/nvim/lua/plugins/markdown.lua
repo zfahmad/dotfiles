@@ -4,16 +4,18 @@ return {
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons",
+            "lervag/vimtex",
         },
-        --        ---@module 'render-markdown'
-        --        ---@type render.md.UserConfig
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
         opts = {},
         config = function()
             require("render-markdown").setup({
-                -- heading = {
-                --     width = 'block',
-                --     left_pad = 1,
-                --     right_pad = 1,
+                completions = { lsp = { enabled = true } },
+                -- checkbox = {
+                --     unchecked = { icon = "✘ " },
+                --     checked = { icon = "✔ " },
+                --     custom = { todo = { rendered = "◯ " } },
                 -- },
                 indent = {
                     enabled = true,
@@ -23,17 +25,26 @@ return {
                     enabled = false,
                     -- win_options = { conceallevel = { rendered = 2 } },
                 },
+                heading = {
+                    width = "block",
+                    left_pad = 2,
+                    right_pad = 4,
+                },
+                -- indent = {
+                -- enabled = true,
+                -- per_level = 4,
+                -- },
+                -- latex = {
+                --     enabled = true,
+                --     win_options = {
+                --         conceallevel = { rendered = 2 },
+                --         concealcursor = { rendered = "" },
+                --     },
+                --     converter = "none",
+                --     inline = { "$", "$" },
+                --     block = { "$$", "$$" },
+                -- },
             })
         end,
     },
 }
--- return {
---     "OXY2DEV/markview.nvim",
---     lazy = false,
---     config = function()
---         local presets = require("markview.presets")
---         require("markview").setup({
---             markdown = { headings = presets.headings.glow }
---         })
---     end,
--- }

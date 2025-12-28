@@ -13,13 +13,6 @@ return {
             },
         },
         config = function()
-            -- Changing gutter signs for diagnostics
-            -- local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-            -- for type, icon in pairs(signs) do
-            --     local hl = "DiagnosticSign" .. type
-            --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            -- end
-
             vim.diagnostic.config({
                 virtual_text = true,
                 -- virtual_lines = true,
@@ -136,11 +129,14 @@ return {
                 "lua_ls",
                 "pyright",
                 "jsonls",
-                "bashls",
                 "vimls",
                 "texlab",
                 "cmake",
                 "prettier",
+                "html",
+                "prettier",
+                "marksman",
+                "bibclean",
             }
 
             for _, lsp in pairs(servers) do
@@ -159,6 +155,13 @@ return {
                     "--offset-encoding=utf-16",
                     "--clang-tidy",
                 },
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+            vim.lsp.enable("clangd")
+
+            vim.lsp.config("bashls", {
+                filetypes = { "sh", "zsh", "bash" },
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
