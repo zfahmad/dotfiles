@@ -12,38 +12,15 @@ return {
         config = function()
             require("render-markdown").setup({
                 completions = { lsp = { enabled = true } },
-                -- checkbox = {
-                --     unchecked = { icon = "✘ " },
-                --     checked = { icon = "✔ " },
-                --     custom = { todo = { rendered = "◯ " } },
-                -- },
                 indent = {
                     enabled = true,
                     per_level = 2,
-                },
-                latex = {
-                    enabled = false,
-                    -- win_options = { conceallevel = { rendered = 2 } },
                 },
                 heading = {
                     width = "block",
                     left_pad = 2,
                     right_pad = 4,
                 },
-                -- indent = {
-                -- enabled = true,
-                -- per_level = 4,
-                -- },
-                -- latex = {
-                --     enabled = true,
-                --     win_options = {
-                --         conceallevel = { rendered = 2 },
-                --         concealcursor = { rendered = "" },
-                --     },
-                --     converter = "none",
-                --     inline = { "$", "$" },
-                --     block = { "$$", "$$" },
-                -- },
             })
         end,
     },
