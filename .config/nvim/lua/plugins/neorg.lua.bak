@@ -1,8 +1,15 @@
 return {
     "nvim-neorg/neorg",
+    -- build = ":Neorg sync-parsers",
     lazy = false,
-    version = "*",
-    dependencies = { { "nvim-neorg/neorg-telescope" } },
+    -- version = "*",
+    version = false,
+    dependencies = {
+        {
+            "nvim-neorg/neorg-telescope",
+            -- "nvim-neorg/tree-sitter-norg",
+        },
+    },
     config = function()
         require("neorg").setup({
             load = {
@@ -30,7 +37,7 @@ return {
                     },
                 },
                 ["core.integrations.telescope"] = {},
-                -- ["core.integrations.nvim-cmp"] = {},
+                ["core.integrations.nvim-cmp"] = {},
                 ["core.export"] = {},
             },
         })

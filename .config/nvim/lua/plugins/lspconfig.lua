@@ -131,11 +131,9 @@ return {
                 "jsonls",
                 "vimls",
                 "texlab",
-                "cmake",
-                "html",
-                "prettier",
+                "neocmake",
+                "html-lsp",
                 "marksman",
-                "bibclean",
             }
 
             for _, lsp in pairs(servers) do
@@ -164,7 +162,7 @@ return {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
-            vim.lsp.enable("clangd")
+            vim.lsp.enable("bashls")
         end,
     },
 }
