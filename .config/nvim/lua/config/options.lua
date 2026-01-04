@@ -15,13 +15,14 @@ opt.encoding = "utf8" -- str:  String encoding to use
 opt.fileencoding = "utf8" -- str:  File encoding to use
 
 -- [[ Theme ]]
+vim.opt.termguicolors = true
 -- vim.cmd.colorscheme('catppuccin-mocha')
 -- vim.cmd.colorscheme("kanagawa-wave")
 -- vim.cmd.colorscheme('catppuccin-mocha')
-vim.cmd.colorscheme("rose-pine-moon")
--- vim.cmd.colorscheme('gruvbox-material')
--- vim.cmd('highlight Conceal guifg=#98971a')
-vim.cmd("highlight Conceal guifg=white")
+-- vim.cmd.colorscheme("rose-pine-moon")
+vim.cmd.colorscheme('gruvbox-material')
+vim.cmd('highlight Conceal guifg=#98971a')
+-- vim.cmd("highlight Conceal guifg=white")
 opt.colorcolumn = "80" -- str:  Show col for max line length
 opt.termguicolors = true -- bool: If term supports ui color then enable
 opt.cursorline = true

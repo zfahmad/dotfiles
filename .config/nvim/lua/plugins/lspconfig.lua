@@ -61,11 +61,11 @@ return {
             local on_attach = function(client, bufnr)
                 vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = bufnr })
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = bufnr })
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "", buffer = bufnr })
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation", buffer = bufnr })
-                vim.keymap.set("n", "<space>k", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
+                --     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = bufnr })
+                --     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = bufnr })
+                --     vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "", buffer = bufnr })
+                --     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation", buffer = bufnr })
+                --     vim.keymap.set("n", "<space>k", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
                 vim.keymap.set(
                     "n",
                     "<space>wa",
@@ -87,17 +87,10 @@ return {
                     vim.lsp.buf.type_definition,
                     { desc = "Type definition", buffer = bufnr }
                 )
-                vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { desc = "Rename", buffer = bufnr })
-                vim.keymap.set(
-                    { "n", "v" },
-                    "<space>ca",
-                    vim.lsp.buf.code_action,
-                    { desc = "Code actions", buffer = bufnr }
-                )
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references", buffer = bufnr })
+
                 vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { desc = "Format file", buffer = bufnr })
                 client.server_capabilities.document_formatting = true
-
+                --
                 if client.server_capabilities.documentHighlightProvider then
                     vim.cmd([[
                         hi! LspReferenceRead cterm=bold ctermbg=Gray guibg=Gray
@@ -127,6 +120,7 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local servers = {
                 "lua_ls",
+                "bashls",
                 "pyright",
                 "jsonls",
                 "vimls",
@@ -137,14 +131,12 @@ return {
             }
 
             for _, lsp in pairs(servers) do
-                -- require("lspconfig")[lsp].setup({
                 vim.lsp.config(lsp, {
                     capabilities = capabilities,
                     on_attach = on_attach,
                 })
                 vim.lsp.enable(lsp)
             end
-            -- require("lspconfig").clangd.setup({
             vim.lsp.config("clangd", {
                 cmd = {
                     "clangd",

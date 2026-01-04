@@ -66,9 +66,13 @@ return {
                 end,
             },
             window = {
-                completion = cmp.config.window.bordered({
-                    winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
-                }),
+                -- completion = cmp.config.window.bordered({
+                --     winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
+                -- }),
+                completion = {
+                    border = "rounded",
+                    winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None"
+                },
                 documentation = cmp.config.window.bordered({
                     winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
                 }),
@@ -98,7 +102,6 @@ return {
             --         { name = "path" },
             --     }),
             -- })
-
         })
         -- autocmd FileType tex setlocal omnifunc=vimtex#complete#omnifunc
     end,
