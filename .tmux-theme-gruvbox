@@ -1,0 +1,4 @@
+set -g @plugin 'egel/tmux-gruvbox'
+set -g @tmux-gruvbox 'dark'
+set -g @tmux-gruvbox-statusbar-alpha 'false'
+set -g @tmux-gruvbox-right-status-z '#h '
