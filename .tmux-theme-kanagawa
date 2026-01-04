@@ -1,0 +1,10 @@
+set -g @plugin 'Nybkox/tmux-kanagawa'
+set -g @kanagawa-theme 'wave'
+set -g @kanagawa-ignore-window-colors true
+# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, tmux-ram-usage, network, network-bandwidth, network-ping, ssh-session, attached-clients, network-vpn, weather, time, mpc, spotify-tui, playerctl, kubernetes-context, synchronize-panes
+set -g @kanagawa-plugins "git weather time"
+set -g @kanagawa-fixed-location "Edmonton"
+set -g @kanagawa-show-timezone false
+set -g @kanagawa-show-powerline true
+set -g @kanagawa-show-left-sep 
+set -g @kanagawa-show-right-sep 
