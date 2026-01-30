@@ -61,8 +61,8 @@ return {
             local on_attach = function(client, bufnr)
                 vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
-                --     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = bufnr })
-                --     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = bufnr })
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = bufnr })
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = bufnr })
                 --     vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "", buffer = bufnr })
                 --     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation", buffer = bufnr })
                 --     vim.keymap.set("n", "<space>k", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
@@ -128,6 +128,7 @@ return {
                 "neocmake",
                 "html-lsp",
                 "marksman",
+                "prettier",
             }
 
             for _, lsp in pairs(servers) do

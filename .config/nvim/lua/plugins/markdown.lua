@@ -12,6 +12,9 @@ return {
         config = function()
             require("render-markdown").setup({
                 completions = { lsp = { enabled = true } },
+                bullet = {
+                    icons = { "‣", "•", "⁃", "◦", "◆", "◇" },
+                },
                 indent = {
                     enabled = true,
                     per_level = 2,
@@ -20,6 +23,15 @@ return {
                     width = "block",
                     left_pad = 2,
                     right_pad = 4,
+                },
+                latex = {
+                    enabled = true, -- Set to false if you only want VimTeX's conceal
+                    converter = "latex2text", -- Requires 'utftex' or 'latex2text' installed
+                    -- highlight = "RenderMarkdownMath",
+                    -- position = "below", -- Options: 'above', 'below', 'center'
+                },
+                highlight = {
+                    enabled = true,
                 },
             })
         end,

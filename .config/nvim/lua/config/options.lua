@@ -13,6 +13,7 @@ opt.foldlevel = 999
 -- [[ Filetypes ]]
 opt.encoding = "utf8" -- str:  String encoding to use
 opt.fileencoding = "utf8" -- str:  File encoding to use
+opt.syntax = "on"
 
 -- [[ Theme ]]
 vim.opt.termguicolors = true
